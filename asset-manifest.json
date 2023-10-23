@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/personligblog/static/css/main.eefc237f.css",
+    "main.js": "/personligblog/static/js/main.5cc14ad4.js",
+    "index.html": "/personligblog/index.html",
+    "main.eefc237f.css.map": "/personligblog/static/css/main.eefc237f.css.map",
+    "main.5cc14ad4.js.map": "/personligblog/static/js/main.5cc14ad4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eefc237f.css",
+    "static/js/main.5cc14ad4.js"
+  ]
+}
