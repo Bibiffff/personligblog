@@ -6,7 +6,7 @@ import { useUserContext } from "../../blogProvider/UserProvider";
 
 const Nav = () => {
 
-    const { user } = useUserContext();
+    const { user, handleLogout } = useUserContext();
 
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -26,7 +26,7 @@ const Nav = () => {
                                 </div>
                                 :
                                 <div className="">
-                                    <Link className="text-decoration-underline" to="/login">Logout</Link>
+                                    <Link className="text-decoration-underline" to="/login" onClick={handleLogout}>Logout</Link>
                                 </div>
                         }
                     </div>

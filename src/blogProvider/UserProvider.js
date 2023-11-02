@@ -16,9 +16,14 @@ const userLogin = async (loginInfo) => {
         },
         body: JSON.stringify(loginInfo)
     })
-    .then((response) => { console.log("response is" + response.status)});
-    return;
-}
+    if (result.status != 200){
+        throw await result.json();
+      }
+    return await result.json();
+        
+};
+
+
 
 // const postUser = async () =>  {
 //     const result = await fetch (`${baseUrl}/user/create`, {
@@ -46,10 +51,11 @@ const postUser = async (user) => {
         headers: {
             "Accept": '*/*',
             'Content-Type': 'application/json',
-            "authorization": `bearer ${localStorage.getItem("token")}`
+            "authorization": `bearer ${localStorage.getItem("userData")}`
         },
         body: JSON.stringify(user)
     });
+
     return await result.json();
 }
 
@@ -60,10 +66,22 @@ export const UserProvider = ({ children }) => {
     });
 
     const handleLogin = async (loginInfo) => {
-        const result = await userLogin(loginInfo);
-        setUser(result);
-        console.log(result)
-        localStorage.setItem("token", result.token);
+        
+        localStorage.removeItem("userData");
+
+        try {
+            const result = await userLogin(loginInfo);
+            //result = await result.json();
+            console.log(result);
+
+            setUser(result);
+            
+            localStorage.setItem("userData", JSON.stringify(result));
+            console.log(console.log(result.token))
+            
+        } catch (error) {
+            alert(JSON.stringify(error))
+        }
     }
 
     const handleLogout = () => {
