@@ -27,9 +27,9 @@ const Login = () => {
         const handleSubmit = async () => {
             const success = await handleLogin(loginInfo);
             console.log("Success2!")
-            navigate("/")
+            navigate("/personligblog")
             if (success) {
-                navigate("/");
+                navigate("/personligblog");
                 console.log("success!")
             }
         }

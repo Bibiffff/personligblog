@@ -32,19 +32,23 @@ const getBlogById = async (id) => {
 //POST
 const postBlog = async (blog) => {
 
-    const form = new FormData();
-    for (const [key, value] of Object.entries(blog)) {
-        form.append(key, value);
-    }
+     const form = new FormData();
+     for (const [key, value] of Object.entries(blog)) {
+         form.append(key, value);
+     }
+    var blogstring = JSON.stringify(blog)
+    console.log(JSON.parse(blogstring))
+
+    var usertoken = JSON.parse(localStorage.getItem("userData"));
 
     const result = await fetch(`${baseUrl}/Blog`, {
         method: "POST",
         headers: {
-            "authorization": `bearer ${localStorage.getItem("token")}`
+            "authorization": `bearer ${usertoken.token}`
         },
         body: form
     });
-    return await result.json();
+    return await result;
 }
 
 //PUT
@@ -55,10 +59,12 @@ const putBlog = async (id, blog) => {
         form.append(key, value);
     }
 
+    var usertoken = JSON.parse(localStorage.getItem("userData"));
+
     const result = await fetch(`${baseUrl}/Blog/${id}`, {
         method: "PUT",
         headers: {
-            "authorization": `bearer ${localStorage.getItem("token")}`
+            "authorization": `bearer ${usertoken.token}`
         },
         body: form
     });
@@ -78,11 +84,13 @@ const deleteBlog = async (id) => {
         form.append(key, value);
     }
 
+    var usertoken = JSON.parse(localStorage.getItem("userData"));
+
 
     const result = await fetch(`${baseUrl}/Blog/${id}`, {
         method: "DELETE",
         headers: {
-            "authorization": `bearer ${localStorage.getItem("token")}`
+            "authorization": `bearer ${usertoken.token}`
         },
       
     });

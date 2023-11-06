@@ -11,14 +11,15 @@ const Nav = () => {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container">
-                <Link to="/" className="navbar-brand" >Blog</Link>
+                <Link to="/personligblog" className="navbar-brand" >Blog</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#blog-nav" aria-controls="bibliotek-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="blog-nav">
                     <div className="navbar-nav me-auto">
-                        <Link to="/" className="nav-link active" aria-current="page" >Home</Link>
-                        <Link to="/" className="nav-link">Hej</Link>
+                        <Link to="/personligblog" className="nav-link active" aria-current="page" >Home</Link>
+                        <Link to="/addBlog" className="nav-link">About</Link>
+                        <Link to="/addBlog" className="nav-link">Add Blog</Link>
                         {
                             user === undefined ?
                                 <div className="">

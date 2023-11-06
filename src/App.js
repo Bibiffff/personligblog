@@ -21,7 +21,7 @@ const App = () => {
       <BlogProvider>
         <Layout>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/personligblog" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/user/create" element={<Signup />} />
             <Route path="/addBlog" element={<AddBlog />} />

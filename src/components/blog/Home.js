@@ -5,13 +5,17 @@ import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { baseUrlImg } from "../../APIConfig";
 import ConfirmationModal from "../modal/onfirmationModal";
 
+import "./home.scss";
+
 const Home = () => {
     const { blogs, removeBlog } = useBlogContext();
     const [blogId, setBlogId] = useState();
 
     const handleDeleteItemSelected = (event) => {
-        const blogId = event.target.dataset.blogId;
+        const blogId = event.target.dataset.blogid;
         setBlogId(blogId);
+        console.log("id is " + blogId)
+        console.log(event.target.dataset.blogid)
         document.getElementById("confirmationModalButton").click();
     }
 
@@ -24,6 +28,14 @@ const Home = () => {
 
     return (
         <section className="container-fluid mt-4">
+            <div className="row">
+                <div className="hero py-5">
+                    <div className="ms-5 whitebox">
+                        <h1 className="pt-5 ms-5 mt-5 ">MIN BLOG</h1>
+                        <p className="pb-5 ms-5 mb-5">min blog min blog min blog min blog min blog min blog</p>
+                    </div>
+                </div>
+            </div>
             <hr />
             <div className="row g-2 mt-3">
                 {
@@ -43,7 +55,7 @@ const Home = () => {
                                             <Link className="btn btn-warning" to={`/personligblog/edit/${b.id}`}><AiFillEdit /> </Link>
                                         </div>
                                         <div className="col-6">
-                                            <button className="btn btn-danger" data-book-id={b.id} onClick={handleDeleteItemSelected}><AiFillDelete /></button>
+                                            <button className="btn btn-danger" data-blogid={b.id} onClick={handleDeleteItemSelected}><AiFillDelete /></button>
                                         </div>
                                     </div>
                                     <div className="row mt-2">

@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useBlogContext } from "../../blogProvider/BlogProvider";
 import { useEffect, useState } from "react";
+import EditModal from "../modal/EditModal";
 
 const EditBlog = () => {
     const { blogId } = useParams();
@@ -30,14 +31,14 @@ const EditBlog = () => {
         const formSubmit = async() => {
             const result = await editBlog(blogId, blog);
             if ( result == 204){
-                document.getElementById("editModalutton").click();
+                document.getElementById("editModalButton").click();
             }
         }
         formSubmit();
     }
 
     const handleInfoModalConfirm = () => {
-        navigate("/");
+        navigate("/personligblog");
     }
 
     return (
@@ -72,7 +73,7 @@ const EditBlog = () => {
                     </div>
                 </div>
             </section>
-            {/* <EditModal title="blog Edited" message={`The blog ${blog?.title} has been edited.`} onConfirm={handleInfoModalConfirm}/> */}
+            <EditModal title="blog Edited" message={`The blog ${blog?.title} has been edited.`} onConfirm={handleInfoModalConfirm}/>
         </>
     );
 };
