@@ -12,6 +12,7 @@ import EditBlog from "./components/blog/EditBlog";
 
 import Signup from "./components/user/signup/Signup";
 import Login from "./components/user/login/Login";
+import About from "./components/blog/About";
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/user/create" element={<Signup />} />
             <Route path="/addBlog" element={<AddBlog />} />
+            <Route path="/about" element={<About/>} />
             <Route path="/personligblog/blogpost/:blogId" element={<BlogPost />} />
             <Route path="/personligblog/edit/:blogId" element={<EditBlog />} />
             <Route path="*" element={<>HTTP 404 - The page you were looking for does not exist.</>} />
